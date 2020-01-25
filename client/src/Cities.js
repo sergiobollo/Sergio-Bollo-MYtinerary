@@ -1,52 +1,42 @@
 import React from 'react';
 
 class Cities extends React.Component {
-
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
-            cities: "",
+            cities: [],
             isFetching: "false"
         }
     }
 
+
     fetchCities = () => {
         this.setState({...this.state, isFetching: true })
-        fetch("http://localhost:5000/cities/all", {
-                method: 'POST',
-                body: JSON.stringify(this.state),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
+        fetch("http://localhost:5000/cities/all")
             .then(response => response.json())
             .then(result => this.setState({ cities: result, isFetching: false }))
-            .catch(e => console.log(e));
+            .catch(e => console.log(e))
     }
 
     componentDidMount() {
-        console.log("this")
         console.log(this)
         this.fetchCities()
     }
 
     render() {
-        const cities = this.cities;
         return ( <
-            div >
+            React.Fragment >
             <
-            h1 > Cities < /h1>;
-
-            <
+            h1 > Cities < /h1> <
             ul > {
-                cities.map((city) =>
+                this.state.cities.map((city) =>
                     <
-                    li key = { city._id }
-                    value = { city }
-                    />
+                    li key = { city.name }
+                    value = { city.name } > { city.name }, { city.country } < /li >
                 )
             } < /ul> < /
-            div > )
+            React.Fragment >
+        )
     }
 }
 
