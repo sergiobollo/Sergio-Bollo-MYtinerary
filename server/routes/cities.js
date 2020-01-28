@@ -31,8 +31,8 @@ router.get('/all',
 
 router.post('/', (req, res, next) => {
  
-    const newCity = req.body.name; //Extract title from input form
-    cityModel.findOne({name:newCity}, function(err, city){
+    const inputCity = req.body.name; //Extract title from input form
+    cityModel.findOne({name:inputCity}, function(err, city){
         if(err) console.log(err);
         if (city){
             console.log("This has already been saved");
