@@ -38,9 +38,17 @@ router.post('/', (req, res, next) => {
             console.log("This has already been saved");
         } else {
  
-            const city = new cityModel(req.body);
-            example.save(function(err, example) {
-                if(err) console.log(err);
+            const newCity = new cityModel({
+            name: req.body.name,
+            country: req.body.country
+            })
+            newCity.save()
+            .then(city => {
+            res.send(city)
+            })
+            .catch(err => {
+            res.status(500).send("Server error")});
+                
                 console.log("New example created");
                 res.redirect(`/`);
             });
