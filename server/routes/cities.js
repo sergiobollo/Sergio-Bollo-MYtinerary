@@ -28,4 +28,44 @@ res.send(city)
 res.status(500).send("Server error")})
 });
 
+
+router.post('/', (req, res, next) => {
+ 
+    const newCity = req.body.name; //Extract title from input form
+    cityModel.findOne({name:newCity}, function(err, city){
+        if(err) console.log(err);
+        if (city){
+            console.log("This has already been saved");
+        } else {
+ 
+            const city = new cityModel(req.body);
+            example.save(function(err, example) {
+                if(err) console.log(err);
+                console.log("New example created");
+                res.redirect(`/`);
+            });
+        }
+    });
+});
+
+
 module.exports = router
+
+// router.post('/example', (req, res, next) => {
+ 
+   // var query = req.body.title; //Extract title from input form
+   // Example.findOne({title:query}, function(err, example){
+     //   if(err) console.log(err);
+      //  if ( example){
+     //       console.log("This has already been saved");
+     //   } else {
+ 
+     //      var example = new Example(req.body);
+       //     example.save(function(err, example) {
+         //       if(err) console.log(err);
+           //     console.log("New example created");
+             //   res.redirect(`/`);
+            });
+     //   }
+   // });
+// });
