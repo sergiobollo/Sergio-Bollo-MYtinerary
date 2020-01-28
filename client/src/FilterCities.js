@@ -16,25 +16,22 @@ class FilterCities extends React.Component {
         this.setState({...this.state, isFetching: true })
         fetch("http://localhost:5000/cities/all")
             .then(response => response.json())
-            .then(result => this.setState({ cities: result, isFetching: false }))
+            .then(result => this.setState({ cities: result, filteredCities: result, isFetching: false }))
             .catch(e => console.log(e))
     }
 
     componentDidMount() {
         console.log(this)
         this.fetchCities()
-    }
-
-    componentWillMount() {
         this.setState({
-            filteredCities: this.state.cities
+            filteredCities: this.state.filteredCities
         })
     }
 
     filterCities = (cityFilter) => {
         let filteredCities = this.state.cities
         filteredCities = filteredCities.filter((city) => {
-            let cityName = this.state.cities.name.toLowerCase()
+            let cityName = city.name.toLowerCase()
             return cityName.indexOf(
                 cityFilter.toLowerCase()) !== -1
         })
@@ -52,7 +49,7 @@ class FilterCities extends React.Component {
             onChange = { this.filterCities }
             /> <
             ul > {
-                this.state.cities.map((city) =>
+                this.state.filteredCities.map((city) =>
                     <
                     li key = { city.name }
                     value = { city.name } > { city.name }, { city.country } < /li >

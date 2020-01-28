@@ -1,5 +1,5 @@
 import React from 'react';
-import FetchCities from './FetchCities'
+import FilterCities from './FilterCities'
 //import VisibleCities from './VisibleCities'
 
 class Cities extends React.Component {
@@ -8,7 +8,8 @@ class Cities extends React.Component {
         return ( <
             React.Fragment >
             <
-            FetchCities / >
+            h1 > Cities < /h1> <
+            FilterCities / >
             <
             /React.Fragment>
         )
