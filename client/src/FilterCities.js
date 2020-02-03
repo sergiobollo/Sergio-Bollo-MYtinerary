@@ -25,7 +25,11 @@ class FilterCities extends React.Component {
         // })
     }
 
+
+
+
     filterCities = (cityFilter) => {
+
         let filteredCities = this.props.cities
         filteredCities = filteredCities.filter((city) => {
             let cityName = city.name.toLowerCase()
