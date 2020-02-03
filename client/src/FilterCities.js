@@ -1,6 +1,8 @@
 import React from 'react';
 import FilterForm from './filterForm';
 import { connect } from "react-redux";
+// Do this in every file where you use `fetch`
+import fetch from 'cross-fetch';
 
 class FilterCities extends React.Component {
 
@@ -17,8 +19,8 @@ class FilterCities extends React.Component {
     componentDidMount() {
         this.fetchCities()
         console.log(this)
-        console.log(this.props)
-        console.log(this.props.citiesList)
+        console.log(this.props.citiesReducer)
+        console.log(this.props.citiesReducer.citiesList)
 
         //  this.setState({
         //    filteredCities: this.state.filteredCities
@@ -30,7 +32,7 @@ class FilterCities extends React.Component {
 
     filterCities = (cityFilter) => {
 
-        let filteredCities = this.props.cities
+        let filteredCities = this.props.citiesReducer.citiesList
         filteredCities = filteredCities.filter((city) => {
             let cityName = city.name.toLowerCase()
             return cityName.indexOf(
@@ -45,10 +47,19 @@ class FilterCities extends React.Component {
         return ( <
             React.Fragment >
             <
-            FilterForm cityFilter = { this.props.cities }
+            FilterForm cityFilter = { this.props.citiesReducer.citiesList }
             match = { this.props.match }
             onChange = { this.filterCities }
-            /> < /
+            />
+                 <
+            ul > {
+                this.props.citiesReducer.citiesList.map((city) =>
+                    <
+                    li key = { city.name }
+                    value = { city.name } > { city.name }, { city.country } < /li >
+                )
+            } < /ul>
+                < /
             React.Fragment >
         )
     }
