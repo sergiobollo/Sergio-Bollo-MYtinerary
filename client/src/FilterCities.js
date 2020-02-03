@@ -15,11 +15,14 @@ class FilterCities extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this)
         this.fetchCities()
-            //  this.setState({
-            //    filteredCities: this.state.filteredCities
-            // })
+        console.log(this)
+        console.log(this.props)
+        console.log(this.props.citiesList)
+
+        //  this.setState({
+        //    filteredCities: this.state.filteredCities
+        // })
     }
 
     filterCities = (cityFilter) => {
@@ -41,14 +44,7 @@ class FilterCities extends React.Component {
             FilterForm cityFilter = { this.props.cities }
             match = { this.props.match }
             onChange = { this.filterCities }
-            /> <
-            ul > {
-                this.props.cities.map((city) =>
-                    <
-                    li key = { city.name }
-                    value = { city.name } > { city.name }, { city.country } < /li >
-                )
-            } < /ul></li > < /
+            /> < /
             React.Fragment >
         )
     }
@@ -63,9 +59,9 @@ const mapDispactchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
     return {
-        cities: state.cities,
-        filteredCities: state.filteredCities,
-        isFetching: state.isFetching
+        citiesList: state.cities.cities
+            //filteredCities: state.filteredCities,
+            //isFetching: state.isFetching
     }
 
 }
