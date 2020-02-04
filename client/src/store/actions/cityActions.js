@@ -1,0 +1,4 @@
+export const LISTAR_CIUDADES = 'LISTAR_CIUDADES';
+export const FILTER_CITIES = 'FILTER_CITIES';
+export const HANDLE_CHANGE = 'HANDLE_CHANGE';
+
