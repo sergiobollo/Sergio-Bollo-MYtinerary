@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
+import HANDLE_CHANGE from "/cityAction";
 
 class FilterForm extends Component {
 
@@ -27,7 +28,7 @@ class FilterForm extends Component {
 const mapDispactchToProps = (dispatch) => {
     return {
         filtrarUsuarios: (value) => {
-            dispatch({ type: 'HANDLE_CHANGE', payload: value })
+            dispatch({ type: HANDLE_CHANGE, payload: value })
         }
     }
 }
