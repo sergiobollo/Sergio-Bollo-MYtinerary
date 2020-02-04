@@ -6,6 +6,11 @@ const itinerarySchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    city: {
+        type: String,
+        required: true,
+        unique: true
+    },
     rating: {
         type: String,
         required: true
