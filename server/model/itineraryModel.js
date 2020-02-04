@@ -11,7 +11,8 @@ const itinerarySchema = new mongoose.Schema({
         required: true
     },
     profilePicture: {
-        type: String
+        type: String,
+        required: true
     },
     duration: {
       type: String
