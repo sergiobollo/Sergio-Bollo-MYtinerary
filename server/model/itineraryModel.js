@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
 const itinerarySchema = new mongoose.Schema({
-    title: {
+    city: {
         type: String,
         required: true,
         unique: true
     },
-    city: {
+    title: {
         type: String,
         required: true,
         unique: true
