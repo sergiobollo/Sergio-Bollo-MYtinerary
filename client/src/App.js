@@ -6,6 +6,7 @@ import Landing from './Landing';
 import Cities from './Cities';
 import Login from './Login';
 import CreateAccount from './CreateAccount';
+import Itinerary from './itinerary';
 import Notfound from './notfound';
 
 export default class App extends Component {
@@ -32,7 +33,13 @@ export default class App extends Component {
             li >
             <
             Link to = "/CreateAccount" > Create Account < /Link> < /
-            li > < /
+            li >
+                <
+            li >
+            <
+            Link to = "/itinerary" > Itinerary < /Link> < /
+            li >
+                < /
             ul >
             <
             hr / >
@@ -51,7 +58,12 @@ export default class App extends Component {
             />  <
             Route path = '/CreateAccount'
             component = { CreateAccount }
-            /> <
+            /> 
+                <
+            Route path = '/itinerary'
+            component = { Itinerary }
+            /> 
+                <
             Route component = { Notfound }
             /> < /
             Switch > <
