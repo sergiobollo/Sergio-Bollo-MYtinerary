@@ -17,6 +17,20 @@ class Itinerary extends React.Component {
         console.log(this)
     }
 
+    render() {
+        return ( <
+            React.Fragment >
+             <
+            ul > {
+                this.props.itineraries.map((city) =>
+                    <
+                    li key = { itinerary.title }
+                    value = { itinerary.title } > { itinerary.title }, { itinerary.city } < /li >
+                )
+            } < /ul> < /
+            React.Fragment >
+        )
+    }
 
 }
 
