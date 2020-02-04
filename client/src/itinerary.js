@@ -6,7 +6,7 @@ class Itinerary extends React.Component {
 
  fetchItineraries = () => {
         // this.setState({...this.state, isFetching: true })
-        fetch("http://localhost:5000/itineraries/all")
+        fetch("http://localhost:5000/itineraries/${this.props.filteredCities.name}")
             .then(response => response.json())
             .then(result => this.props.listarItinerarios(result))
             .catch(e => console.log(e))
