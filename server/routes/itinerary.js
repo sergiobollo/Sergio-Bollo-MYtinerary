@@ -3,14 +3,15 @@ const router = express.Router();
 const itineraryModel = require('../model/itineraryModel');
 
 //this is code that you have already implemented in your project
-router.get('/all',
+router.get('/todos',
 (req, res) => {
-cityModel.find({})
+itineraryModel.find({})
 .then(files => {
 res.send(files)
 })
 .catch(err => console.log(err));
 });
+
 //this is how you implement a city route by specific city
 router.get('/:name',
 (req, res) => {
