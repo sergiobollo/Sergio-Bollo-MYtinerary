@@ -1,17 +1,11 @@
 import React, { Component } from 'react'
+import { connect } from "react-redux";
 
 class FilterForm extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            cityFilter: ""
-        }
-    }
+
 
     handleChange = (e) => {
-        this.setState({
-            cityFilter: e.target.value
-        })
+        this.props.filtrarUsuarios(e.target.value)
         this.props.onChange(e.target.value)
     }
 
@@ -22,7 +16,7 @@ class FilterForm extends Component {
             label htmlFor = "filter" > Filter by City: < /label> <
             input type = "text"
             id = "filter"
-            value = { this.state.cityFilter }
+            value = { this.props.cityFilter }
             onChange = { this.handleChange }
             /> < /
             div >
@@ -30,4 +24,18 @@ class FilterForm extends Component {
     }
 }
 
-export default FilterForm
+const mapDispactchToProps = (dispatch) => {
+    return {
+        filtrarUsuarios: (value) => {
+            dispatch({ type: 'HANDLE_CHANGE', payload: value })
+        }
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+        cityFilter: state.cityFilter.cityFilter
+    }
+}
+
+export default connect(mapStateToProps, mapDispactchToProps)(FilterForm)

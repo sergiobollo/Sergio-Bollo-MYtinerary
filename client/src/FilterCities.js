@@ -17,40 +17,26 @@ class FilterCities extends React.Component {
     componentDidMount() {
         this.fetchCities()
         console.log(this)
-        console.log(this.props)
-        console.log(this.props.citiesList)
+        console.log(this.props.match)
 
-        //  this.setState({
-        //    filteredCities: this.state.filteredCities
-        // })
+
     }
 
-
-
-
     filterCities = (cityFilter) => {
-
-        let filteredCities = this.props.citiesReducer.citiesList
-        filteredCities = filteredCities.filter((city) => {
-            let cityName = city.name.toLowerCase()
-            return cityName.indexOf(
-                cityFilter.toLowerCase()) !== -1
-        })
-        this.setState({
-            filteredCities
-        })
+        this.props.filtrarCiudades(cityFilter);
+        console.log(this.props)
     }
 
     render() {
         return ( <
             React.Fragment >
             <
-            FilterForm cityFilter = { this.props.citiesList }
+            FilterForm cityFilter = { this.props.filteredCities }
             match = { this.props.match }
             onChange = { this.filterCities }
             /> <
             ul > {
-                this.props.citiesList.map((city) =>
+                this.props.filteredCities.map((city) =>
                     <
                     li key = { city.name }
                     value = { city.name } > { city.name }, { city.country } < /li >
@@ -64,15 +50,16 @@ class FilterCities extends React.Component {
 
 const mapDispactchToProps = (dispatch) => {
     return {
-        listarCiudades: (result) => dispatch({ type: 'LISTAR_CIUDADES', payload: result })
+        listarCiudades: (result) => dispatch({ type: 'LISTAR_CIUDADES', payload: result }),
+        filtrarCiudades: (cityFilter) => dispatch({ type: 'FILTER_CITIES', payload: cityFilter })
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        citiesList: state.cities.cities
-            //filteredCities: state.filteredCities,
-            //isFetching: state.isFetching
+        citiesList: state.cities.cities,
+        filteredCities: state.cities.filteredCities,
+        isFetching: state.isFetching
     }
 
 }

@@ -1,19 +1,21 @@
 const initialState = {
-    cities: []
+    cities: [],
+    filteredCities: []
 }
 
 const FilterCitiesReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'LISTAR_CIUDADES':
-            return {...state, cities: action.payload };
-            /* case 'FILTER_CITIES':
-                 return {...state,
-                     filteredCities: state.cities.filter((city) => {
-                         let cityName = city.name.toLowerCase()
-                         return cityName.indexOf(
-                             action.payload.toLowerCase()) !== -1
-                     })
-                 };*/
+            return {...state, cities: action.payload, filteredCities: action.payload };
+        case 'FILTER_CITIES':
+            return {...state,
+                filteredCities: state.cities.filter((city) => {
+                    let cityName = city.name.toLowerCase()
+                    return cityName.indexOf(
+                        action.payload.toLowerCase()) === 0
+                })
+
+            };
         default:
             return state
     }
