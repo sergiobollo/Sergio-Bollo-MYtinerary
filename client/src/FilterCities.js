@@ -1,6 +1,9 @@
 import React from 'react';
 import FilterForm from './filterForm';
 import { connect } from "react-redux";
+import LISTAR_CIUDADES from "/cityAction";
+import FILTER_CITIES from "/cityAction";
+
 
 class FilterCities extends React.Component {
 
@@ -50,8 +53,8 @@ class FilterCities extends React.Component {
 
 const mapDispactchToProps = (dispatch) => {
     return {
-        listarCiudades: (result) => dispatch({ type: 'LISTAR_CIUDADES', payload: result }),
-        filtrarCiudades: (cityFilter) => dispatch({ type: 'FILTER_CITIES', payload: cityFilter })
+        listarCiudades: (result) => dispatch({ type: LISTAR_CIUDADES, payload: result }),
+        filtrarCiudades: (cityFilter) => dispatch({ type: FILTER_CITIES, payload: cityFilter })
     }
 }
 
