@@ -13,9 +13,9 @@ res.send(files)
 });
 
 //this is how you implement a city route by specific city
-router.get('/:cityName',
+router.get('/:name',
 (req, res) => {
-let cityRequested = req.params.cityName;
+let cityRequested = req.params.name;
 itineraryModel.find({ city: cityRequested })
 .then(itineraries => {
 res.send(itineraries)
