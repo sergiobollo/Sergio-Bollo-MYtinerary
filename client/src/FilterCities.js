@@ -1,8 +1,7 @@
 import React from 'react';
 import FilterForm from './filterForm';
 import { connect } from "react-redux";
-import LISTAR_CIUDADES from "/cityAction";
-import FILTER_CITIES from "/cityAction";
+import { LISTAR_CIUDADES, FILTER_CITIES } from "./store/actions/cityActions";
 
 
 class FilterCities extends React.Component {

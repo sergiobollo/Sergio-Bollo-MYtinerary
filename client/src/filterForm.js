@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
-import HANDLE_CHANGE from "/cityAction";
+import { HANDLE_CHANGE } from "./store/actions/cityActions";
 
 class FilterForm extends Component {
 

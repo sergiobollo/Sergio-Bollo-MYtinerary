@@ -1,20 +1,22 @@
 import React from 'react';
 import { connect } from "react-redux";
-import FILTER_ITINERARIES from "/itineraryAction";
+import { FILTER_ITINERARIES, LISTAR_ITINERARIOS } from "./store/actions/itineraryActions";
+
 
 class Itinerary extends React.Component {
 
- fetchItineraries = () => {
+    fetchItineraries = () => {
         // this.setState({...this.state, isFetching: true })
-        fetch("http://localhost:5000/itineraries/${this.props.filteredCities.name}")
+        fetch("http://localhost:5000/itineraries/all")
+            //{this.props.filteredCities.name}
             .then(response => response.json())
             .then(result => this.props.listarItinerarios(result))
             .catch(e => console.log(e))
     }
- 
-     componentDidMount() {
+
+    componentDidMount() {
         this.fetchItineraries()
-        console.log(this.props.filteredCities)
+        console.log(this)
     }
 
 
@@ -22,9 +24,9 @@ class Itinerary extends React.Component {
     render() {
         return ( <
             React.Fragment >
-             <
+            <
             ul > {
-                this.props.itineraries.map((city) =>
+                this.props.itineraries.map((itinerary) =>
                     <
                     li key = { itinerary.title }
                     value = { itinerary.title } > { itinerary.title }, { itinerary.city } < /li >
@@ -56,4 +58,4 @@ const mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps, mapDispactchToProps)(FilterItineraries)
+export default connect(mapStateToProps, mapDispactchToProps)(Itinerary)
