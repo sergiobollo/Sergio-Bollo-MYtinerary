@@ -3,7 +3,7 @@ const router = express.Router();
 const itineraryModel = require('../model/itineraryModel')
 
 //this is code that you have already implemented in your project
-router.get('/todos',
+router.get('/all',
 (req, res) => {
 itineraryModel.find({})
 .then(files => {
