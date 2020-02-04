@@ -16,7 +16,7 @@ res.send(files)
 router.get('/:name',
 (req, res) => {
 let cityRequested = req.params.name;
-itineraryModel.findOne({ city: cityRequested })
+itineraryModel.find({ city: cityRequested })
 .then(itineraries => {
 res.send(itineraries)
 })
