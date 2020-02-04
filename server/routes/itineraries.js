@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const itineraryModel = require('../model/itineraryModel');
-const cityModel = require('../model/cityModel');
+const itineraryModel = require('../model/itineraryModel')
 
 //this is code that you have already implemented in your project
 router.get('/todos',
@@ -17,9 +16,9 @@ res.send(files)
 router.get('/:name',
 (req, res) => {
 let cityRequested = req.params.name;
-cityModel.findOne({ name: cityRequested })
-.then(city => {
-res.send(city)
+itineraryModel.findOne({ city: cityRequested })
+.then(itineraries => {
+res.send(itineraries)
 })
 .catch(err => console.log(err));
 });
