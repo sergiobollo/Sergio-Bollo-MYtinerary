@@ -14,8 +14,10 @@ class Itinerary extends React.Component {
  
      componentDidMount() {
         this.fetchItineraries()
-        console.log(this)
+        console.log(this.props.filteredCities)
     }
+
+
 
     render() {
         return ( <
@@ -45,7 +47,8 @@ const mapStateToProps = (state) => {
     return {
         itineraries: state.itineraries.itineraries,
         filteredItineraries: state.itineraries.filteredItineraries,
-        isFetching: state.isFetching
+        isFetching: state.isFetching,
+        filteredCities: state.cities.filteredCities
     }
 
 }
