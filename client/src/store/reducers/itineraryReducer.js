@@ -4,7 +4,7 @@ const initialState = {
 
 const ItinerariesReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'FILTER_ITINERARIES':
+        case 'LISTAR_ITINERARIOS':
             return {...state, itineraries: action.payload};
         default:
             return state
