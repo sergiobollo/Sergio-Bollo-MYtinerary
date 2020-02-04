@@ -20,14 +20,10 @@ class FilterCities extends React.Component {
     componentDidMount() {
         this.fetchCities()
         console.log(this)
-        console.log(this.props.match)
-
-
     }
 
     filterCities = (cityFilter) => {
         this.props.filtrarCiudades(cityFilter);
-        console.log(this.props)
     }
 
     render() {
