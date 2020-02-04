@@ -13,7 +13,7 @@ class Itinerary extends React.Component {
     }
  
      componentDidMount() {
-        this.fetchCities()
+        this.fetchItineraries()
         console.log(this)
     }
 
