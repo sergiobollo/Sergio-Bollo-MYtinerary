@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Logo(props) {
     return <img src = { props.source }
@@ -9,12 +10,14 @@ function Logo(props) {
 }
 
 function Browser(props) {
-    return <a href = { props.href } > < img src = { props.src }
+    return <
+        Link to = "/Cities" > < img src = { props.src }
     alt = { props.alt }
     className = "App-browser" /
         >
         <
-        /a >
+        /Link>
+
 }
 
 function FindTrip(props) {
@@ -22,8 +25,7 @@ function FindTrip(props) {
         div > < p > Find your perfect trip, designed by < br / >
         insiders who know and love their cities. < /p> <
     h1 > Start Browsing < /h1> <
-    Browser href = { props.link }
-    src = { props.source }
+    Browser src = { props.source }
     alt = { props.name }
     / > < /
     div >
@@ -65,10 +67,13 @@ function Landing() {
         Logo source = "./MYtineraryLogo.png"
     alt = "Logo" / >
 
+
+
         <
         FindTrip source = "./circled-right-2.png"
-    name = "Browser"
-    link = "./Cities" / >
+    name = "Browser" /
+        >
+
 
         <
         BuildMytineray linkLogin = "./Login"
