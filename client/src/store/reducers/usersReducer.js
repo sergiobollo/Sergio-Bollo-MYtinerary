@@ -1,6 +1,6 @@
 const initilState = {  email: '',
       password: '',
-      picture: '', login:{} };
+      picture: '', login:{ };
 
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -8,10 +8,10 @@ const usersReducer = (state = initialState, action) => {
             ...state,
             user: action.payload
         }
-       /* case 'LOGIN_USER': return {
+        case 'LOGIN_USER': return {
             ...state,
             login: action.payload
-        }*/
+        }
         default: return state;
     }
 };
