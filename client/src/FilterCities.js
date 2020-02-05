@@ -2,7 +2,8 @@ import React from 'react';
 import FilterForm from './filterForm';
 import { connect } from "react-redux";
 import { LISTAR_CIUDADES, FILTER_CITIES } from "./store/actions/cityActions";
-
+import { Link } from 'react-router-dom';
+import { FILTER_ITINERARIES } from "./store/actions/itineraryActions"
 
 class FilterCities extends React.Component {
 
@@ -25,6 +26,10 @@ class FilterCities extends React.Component {
         this.props.filtrarCiudades(cityFilter);
     }
 
+    handleClick = (name) => {
+        this.props.clickearCiudad(name)
+    }
+
     render() {
         return ( <
             React.Fragment >
@@ -37,7 +42,11 @@ class FilterCities extends React.Component {
                 this.props.filteredCities.map((city) =>
                     <
                     li key = { city.name }
-                    value = { city.name } > { city.name }, { city.country } < /li >
+                    value = { city.name } > <
+                    Link to = "/itinerary"
+                    onClick = {
+                        () => this.handleClick(city.name)
+                    } > { city.name }, { city.country } < /Link> < /li >
                 )
             } < /ul> < /
             React.Fragment >
@@ -49,7 +58,8 @@ class FilterCities extends React.Component {
 const mapDispactchToProps = (dispatch) => {
     return {
         listarCiudades: (result) => dispatch({ type: LISTAR_CIUDADES, payload: result }),
-        filtrarCiudades: (cityFilter) => dispatch({ type: FILTER_CITIES, payload: cityFilter })
+        filtrarCiudades: (cityFilter) => dispatch({ type: FILTER_CITIES, payload: cityFilter }),
+        clickearCiudad: (name) => dispatch({ type: FILTER_ITINERARIES, payload: name })
     }
 }
 
@@ -57,7 +67,8 @@ const mapStateToProps = (state) => {
     return {
         citiesList: state.cities.cities,
         filteredCities: state.cities.filteredCities,
-        isFetching: state.isFetching
+        isFetching: state.isFetching,
+        url: state.itineraries.url
     }
 
 }

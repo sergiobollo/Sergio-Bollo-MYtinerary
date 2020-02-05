@@ -7,8 +7,7 @@ class Itinerary extends React.Component {
 
     fetchItineraries = () => {
         // this.setState({...this.state, isFetching: true })
-        fetch("http://localhost:5000/itineraries/all")
-            //{this.props.filteredCities.name}
+        fetch(this.props.url)
             .then(response => response.json())
             .then(result => this.props.listarItinerarios(result))
             .catch(e => console.log(e))
@@ -16,7 +15,7 @@ class Itinerary extends React.Component {
 
     componentDidMount() {
         this.fetchItineraries()
-        console.log(this)
+        console.log(this.props.url)
     }
 
 
@@ -48,7 +47,7 @@ const mapDispactchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
     return {
         itineraries: state.itineraries.itineraries,
-        filteredItineraries: state.itineraries.filteredItineraries,
+        url: state.itineraries.url,
         isFetching: state.isFetching,
         filteredCities: state.cities.filteredCities
     }
