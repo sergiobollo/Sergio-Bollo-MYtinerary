@@ -69,4 +69,4 @@ const mapStateToProps = (state) => {
          email: state.user.email,
       password: state.user.password,
       picture: state.user.picture};
-    }
+    }*/
