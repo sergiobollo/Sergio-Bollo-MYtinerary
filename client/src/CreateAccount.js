@@ -9,10 +9,14 @@ export default class CreateAccount extends Component {
       password: '',
       picture: ''};
 
-    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+    handleSubmit(event) {
+    alert('An email was submitted: ' + this.state.email);
+    event.preventDefault();
+  }
+  
   handleEmailChange(event) {
     this.setState({email: event.target.value});
    }
@@ -25,13 +29,6 @@ export default class CreateAccount extends Component {
     this.setState({picture: event.target.value});
    }
   
-  handleSubmit(event) {
-    alert('An email was submitted: ' + this.state.email);
-    event.preventDefault();
-  }
-
-
-  
   render() {
     return (
         <div>
@@ -39,16 +36,16 @@ export default class CreateAccount extends Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           Email:
-          <input placeholder="Email" type="email" value={this.state.email} onChange={this.handleEmailChange} />
+          <input placeholder="Email" type="email" value={this.state.email} onChange={this.handleEmailChange.bind(this)} />
         </label>
               <label>
           Password:
-          <input placeholder="Password" type="password" value={this.state.password} onChange={this.handlePasswordChange} />
+          <input placeholder="Password" type="password" value={this.state.password} onChange={this.handlePasswordChange.bind(this)} />
         </label>
               </label>
               <label>
           Picture:
-          <input placeholder="Picture" type="url" value={this.state.picture} onChange={this.handlePictureChange} />
+          <input placeholder="Picture" type="url" value={this.state.picture} onChange={this.handlePictureChange.bind(this)} />
         </label>
       
         <input type="submit" value="Submit" />
