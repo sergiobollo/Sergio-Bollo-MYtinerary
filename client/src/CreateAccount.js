@@ -19,6 +19,8 @@ export default class CreateAccount extends Component {
     event.preventDefault();
   }
 
+ // email, password, picture (this will be a URL)
+  
   render() {
     return (
         <div>
