@@ -23,12 +23,13 @@ class Itinerary extends React.Component {
     render() {
         return ( <
             React.Fragment >
+                <h1>{this.props.itineraries[0].city}</h1>
             <
             ul > {
                 this.props.itineraries.map((itinerary) =>
                     <
                     li key = { itinerary.title }
-                    value = { itinerary.title } > { itinerary.title }, { itinerary.city } , { itinerary.rating }, { itinerary.profilePicture }, { itinerary.duration }, { itinerary.price }, { itinerary.hashtags} , { itinerary.activities} < /li >
+                    value = { itinerary.title } > { itinerary.title }, { itinerary.username } , { itinerary.rating }, { itinerary.profilePicture }, { itinerary.duration }, { itinerary.price }, { itinerary.hashtags} , { itinerary.activities} < /li >
                 )
             } < /ul> < /
             React.Fragment >
