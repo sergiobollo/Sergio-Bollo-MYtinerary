@@ -1,4 +1,6 @@
-const initilState = { user: {}, login:{} };
+const initilState = {  email: '',
+      password: '',
+      picture: ''}, login:{} };
 
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
