@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from "react-redux";
+import { POST_USER, LOGIN_USER } from "./store/actions/usersActions";
 
 export default class CreateAccount extends Component {
 
@@ -54,3 +56,17 @@ export default class CreateAccount extends Component {
     );
   }
 }
+
+
+/*const mapDispactchToProps = (dispatch) => {
+    return {
+        crearUser: (result) => dispatch({ type: POST_USER, payload: result }),
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+         email: state.user.email,
+      password: state.user.password,
+      picture: state.user.picture};
+    }
