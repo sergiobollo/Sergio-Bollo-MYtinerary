@@ -7,7 +7,7 @@ router.post('/', (req, res) => {
     const newUser = new userModel({
         email: req.body.email,
         password: req.body.password,
-        picture: req.body.pictute
+        picture: req.body.picture
     })
     newUser.save()
         .then(user => {
