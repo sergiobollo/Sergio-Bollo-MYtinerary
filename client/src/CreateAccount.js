@@ -21,15 +21,15 @@ class CreateAccount extends React.Component {
     }
 
     handleEmailChange(event) {
-        this.crearEmail(event.target.value);
+        this.props.crearEmail(event.target.value);
     }
 
     handlePasswordChange(event) {
-        this.crearPassword(event.target.value);
+        this.props.crearPassword(event.target.value);
     }
 
     handlePictureChange(event) {
-        this.crearPicture(event.target.value);
+        this.props.crearPicture(event.target.value);
     }
 
     render() {
@@ -85,7 +85,6 @@ const mapDispactchToProps = (dispatch) => {
         crearEmail: (value) => dispatch({ type: POST_EMAIL, payload: value }),
         crearPassword: (value) => dispatch({ type: POST_PASSWORD, payload: value }),
         crearPicture: (value) => dispatch({ type: POST_PICTURE, payload: value }),
-
 
     }
 }
