@@ -17,8 +17,8 @@ router.post('/login', function (req, res) {
             if (user.password === req.body.password) {
                 const payload = {
                     id: user._id,
-                    userName: user.username,
-                    avatarPicture: user.avatarPicture
+                    mail: user.mail,
+                    picture: user.picture
                 };
                 const options = { expiresIn: 2592000 };
                 jwt.sign(
