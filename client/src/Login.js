@@ -6,14 +6,18 @@ import axios from 'axios';
 class Login extends React.Component {
     
     
-      handleSubmit = async () => {
-        await this.props.login(this.props.param);
-        
+    
+    async handleSubmit(event) {
+        let res = await axios.post('http://localhost:5000/login/', this.props.params);
+
+        console.log(res.data);
+
         alert("Login", this.props.logged);
-        this.onLoginSuccess(this.props.logged.token)
+        //this.onLoginSuccess(this.props.logged.token)
+        event.preventDefault();
 
     }
-    
+       
     
     handleEmailChange(event) {
         this.props.ingresarEmail(event.target.value);
