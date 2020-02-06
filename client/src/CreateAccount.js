@@ -5,19 +5,11 @@ import axios from 'axios';
 
 class CreateAccount extends React.Component {
 
-
-
     async handleSubmit(event) {
-
-
-
         let res = await axios.post('http://localhost:5000/users/', this.props.params);
-
         console.log(res.data);
-
         alert('An email was submitted: ' + this.props.email);
         event.preventDefault();
-
     }
 
     handleEmailChange(event) {
