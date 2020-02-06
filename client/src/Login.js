@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { LOG_EMAIL, LOG_PASSWORD, LOGIN } from "./store/actions/usersAction";
+import { POST_EMAIL, POST_PASSWORD, LOGIN } from "./store/actions/usersAction";
 import axios from 'axios';
 
 class Login extends React.Component {
@@ -63,8 +63,8 @@ class Login extends React.Component {
 
 const mapDispactchToProps = (dispatch) => {
     return {
-        ingresarEmail: (value) => dispatch({ type: LOG_EMAIL, payload: value }),
-        ingresarPassword: (value) => dispatch({ type: LOG_PASSWORD, payload: value }),
+        ingresarEmail: (value) => dispatch({ type: POST_EMAIL, payload: value }),
+        ingresarPassword: (value) => dispatch({ type: POST_PASSWORD, payload: value }),
         login: (value) => dispatch({ type: LOGIN, payload: value }),
     }
 }
