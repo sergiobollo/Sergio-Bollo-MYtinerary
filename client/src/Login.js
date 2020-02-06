@@ -8,10 +8,9 @@ class Login extends React.Component {
     
     
     async handleSubmit(event) {
-        let res = await axios.post('http://localhost:5000/login/', this.props.params);
-
+        let res = await axios.post('http://localhost:5000/authentication/login', this.props.params);
         console.log(res.data);
-
+        this.props.login(res.data);
         alert("Login", this.props.logged);
         //this.onLoginSuccess(this.props.logged.token)
         event.preventDefault();
