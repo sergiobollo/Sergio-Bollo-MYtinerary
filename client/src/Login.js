@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { LOG_EMAIL, LOG_PASSWORD, LOGIN } from "./store/actions/usersAction";
+import axios from 'axios';
 
 class Login extends React.Component {
     
