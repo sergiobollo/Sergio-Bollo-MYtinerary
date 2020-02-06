@@ -6,14 +6,15 @@ const userModel = require('../model/userModel');
 //Provide error to the user if account exist
 //Encrypt your password with bcrypt before saving the new user to the database
 
-router.get('/all',
-    (req, res) => {
-        userModel.find({})
-            .then(files => {
-                res.send(files)
-            })
-            .catch(err => console.log(err));
-    });
+router.get('/:email',
+(req, res) => {
+let emailRequested = req.params.email;
+userModel.findOne({ email: emailRequested })
+.then(user => {
+res.send(user)
+})
+.catch(err => console.log(err));
+});
 
 router.post('/', (req, res) => {
     const newUser = new userModel({
