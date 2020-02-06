@@ -5,8 +5,6 @@ import axios from 'axios';
 
 class Login extends React.Component {
     
-    
-    
     async handleSubmit(event) {
         let res = await axios.post('http://localhost:5000/authentication/login', this.props.params);
         console.log(res.data);
@@ -14,9 +12,15 @@ class Login extends React.Component {
         alert("Login", this.props.logged);
         //this.onLoginSuccess(this.props.logged.token)
         event.preventDefault();
-
     }
-       
+
+      /*  async onLoginSuccess(token) {
+        console.log(token);
+        axios.defaults.headers.common.Authorization = 'bearer ' + token;
+        localStorage.setItem('token', token);
+        const decoded = jwt_decode(token);
+        console.log(decoded);
+      }*/
     
     handleEmailChange(event) {
         this.props.ingresarEmail(event.target.value);
