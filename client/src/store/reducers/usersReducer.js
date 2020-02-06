@@ -2,6 +2,7 @@ const initialState = {
     email: '',
     password: '',
     picture: '',
+    token:''
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -21,7 +22,11 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 picture: action.payload
             }
-
+            case 'LOGIN':
+            return {
+                ...state,
+                token: action.payload
+            }       
         default:
             return state;
     }
