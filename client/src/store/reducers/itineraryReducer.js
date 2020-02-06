@@ -1,6 +1,7 @@
 const initialState = {
     itineraries: [],
-    url: []
+    url: [],
+    city: ""
 }
 
 const ItinerariesReducer = (state = initialState, action) => {
@@ -8,7 +9,7 @@ const ItinerariesReducer = (state = initialState, action) => {
         case 'LISTAR_ITINERARIOS':
             return {...state, itineraries: action.payload };
         case 'FILTER_ITINERARIES':
-            return {...state, url: "http://localhost:5000/itineraries/" + action.payload };
+            return {...state, url: "http://localhost:5000/itineraries/" + action.payload, city: action.payload };
         default:
             return state
     }

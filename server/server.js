@@ -14,6 +14,7 @@ app.use(cors());
 
 app.use('/cities', require('./routes/cities'));
 app.use('/itineraries', require('./routes/itineraries'));
+app.use('/users', require('./routes/users'));
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

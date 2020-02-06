@@ -19,17 +19,16 @@ class Itinerary extends React.Component {
     }
 
 
-
     render() {
         return ( <
             React.Fragment >
-                <h1>{this.props.itineraries[0].city}</h1>
             <
+            h1 > { this.props.city } < /h1> <
             ul > {
                 this.props.itineraries.map((itinerary) =>
                     <
                     li key = { itinerary.title }
-                    value = { itinerary.title } > { itinerary.title }, { itinerary.username } , { itinerary.rating }, { itinerary.profilePicture }, { itinerary.duration }, { itinerary.price }, { itinerary.hashtags} , { itinerary.activities} < /li >
+                    value = { itinerary.title } > { itinerary.title }, { itinerary.username }, { itinerary.rating }, { itinerary.profilePicture }, { itinerary.duration }, { itinerary.price }, { itinerary.hashtags }, { itinerary.activities } < /li >
                 )
             } < /ul> < /
             React.Fragment >
@@ -50,7 +49,7 @@ const mapStateToProps = (state) => {
         itineraries: state.itineraries.itineraries,
         url: state.itineraries.url,
         isFetching: state.isFetching,
-        filteredCities: state.cities.filteredCities
+        city: state.itineraries.city
     }
 
 }

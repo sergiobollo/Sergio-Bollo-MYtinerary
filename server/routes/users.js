@@ -1,10 +1,19 @@
 const express = require('express');
 const router = express.Router();
-const userModel = require('../model/userModel')
+const userModel = require('../model/userModel');
 
 //Create user POST route, user model and user collection in Mongodb, if it doesn’t already exist.
 //Provide error to the user if account exist
 //Encrypt your password with bcrypt before saving the new user to the database
+
+router.get('/all',
+    (req, res) => {
+        userModel.find({})
+            .then(files => {
+                res.send(files)
+            })
+            .catch(err => console.log(err));
+    });
 
 router.post('/', (req, res) => {
     const newUser = new userModel({
