@@ -7,7 +7,7 @@ function HomeLink(props) {
     alt = "Logo"
     className = "App-home mt-4" /
         >
-         Home < /Link> < /
+         < /Link>
 }
 
 export default HomeLink;
