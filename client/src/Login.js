@@ -34,8 +34,8 @@ class Login extends React.Component {
 
     render() {
         let content;
-        // console.log(this.props.login);
-        if (this.props.login.token) {
+        console.log(this.props.logged);
+        if (this.props.logged.token) {
             content = <Redirect to='/home'></Redirect>
         } else {
             content =<
