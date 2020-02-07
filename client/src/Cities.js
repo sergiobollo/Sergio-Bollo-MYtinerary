@@ -1,7 +1,7 @@
 import React from 'react';
-import FilterCities from './FilterCities'
-//import VisibleCities from './VisibleCities'
-import HomeLink from './homeLink'
+import FilterCities from './FilterCities';
+//import VisibleCities from './VisibleCities';
+import HomeLink from './homeLink';
 
 class Cities extends React.Component {
 
