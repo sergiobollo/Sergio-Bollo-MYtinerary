@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { POST_EMAIL, POST_PASSWORD, LOGIN } from "./store/actions/usersAction";
 import axios from 'axios';
 import { REGISTER_EMAIL } from "./store/actions/registerAction";
+import { Redirect } from 'react-router-dom';
 
 class Login extends React.Component {
 
@@ -32,11 +33,15 @@ class Login extends React.Component {
     }
 
     render() {
-        return ( <
+        let content;
+        // console.log(this.props.login);
+        if (this.props.login.token) {
+            content = <Redirect to='/home'></Redirect>
+        } else {
+            content =<
             React.Fragment >
             <
             h1 > Login < /h1>
-
             <
             form onSubmit = { this.handleSubmit.bind(this) } >
             <
@@ -67,8 +72,9 @@ class Login extends React.Component {
 
             <
             /React.Fragment>
-        );
     }
+        return content;
+}
 }
 
 const mapDispactchToProps = (dispatch) => {
