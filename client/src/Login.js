@@ -4,6 +4,7 @@ import { POST_EMAIL, POST_PASSWORD, LOGIN } from "./store/actions/usersAction";
 import axios from 'axios';
 import { REGISTER_EMAIL } from "./store/actions/registerAction";
 import { Redirect } from 'react-router-dom';
+import HomeLink from './homeLink';
 
 class Login extends React.Component {
 
@@ -72,6 +73,7 @@ class Login extends React.Component {
 
             <
             /React.Fragment>
+            <HomeLink/>
     }
         return content;
 }
