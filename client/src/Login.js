@@ -70,10 +70,10 @@ class Login extends React.Component {
             value = "Submit" / >
             <
             /form>
-
+            <HomeLink/>
             <
             /React.Fragment>
-            <HomeLink/>
+            
     }
         return content;
 }
