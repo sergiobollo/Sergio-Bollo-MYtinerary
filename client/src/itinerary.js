@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { FILTER_ITINERARIES, LISTAR_ITINERARIOS } from "./store/actions/itineraryActions";
+import HomeLink from './homeLink';
 
 
 class Itinerary extends React.Component {
@@ -31,7 +32,9 @@ class Itinerary extends React.Component {
                             value = { itinerary.title } > { itinerary.title }, { itinerary.username }, { itinerary.rating }, { itinerary.profilePicture }, { itinerary.duration }, { itinerary.price }, { itinerary.hashtags }, { < h5 > Activities: < /h5>}, {
                                 itinerary.activities.map((activity) => < ul > < li key = { activity } > < button href = "#" > { activity } < /button > < /li > < /ul > )
                                 } < /li > )
-                            } < /ol> < /
+                            } < /ol>
+<HomeLink/>
+< /
                             React.Fragment >
                         )
                     }
