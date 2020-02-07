@@ -11,17 +11,17 @@ class Login extends React.Component {
         console.log(res.data);
         this.props.login(res.data);
         alert("Login", this.props.logged);
-        this.storeToken(this.props.logged.token)
+       // this.storeToken(this.props.logged.token)
         event.preventDefault();
     }
 
-    async storeToken(token) {
+  /*  async storeToken(token) {
       console.log(token);
       axios.defaults.headers.common.Authorization = 'bearer ' + token;
       localStorage.setItem('token', token);
       const decoded = jwt_decode(token);
       console.log(decoded);
-    }
+    } */
 
     handleEmailChange(event) {
         this.props.ingresarEmail(event.target.value);
