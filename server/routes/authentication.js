@@ -1,24 +1,26 @@
-var express= require('express');
+var express = require('express');
 var router = express.Router();
-const key= require('.../keys');
-const jwt= require('jsonwebtoken');
+const key = require('../keys');
+const jwt = require('jsonwebtoken');
 const userModel = require('../model/userModel');
-const passport= require('passport');
+const passport = require('passport');
 
 router.get(
-"/",
-passport.authenticate("jwt", { session: false }),
-(req, res) => {
-userModel
-.findOne({ _id: req.user.id })
-.then(user => {
-res.json(user);
-})
-.catch(err => res.status(404).json({ error: "User does not
-exist!" }));
-}
+    "/",
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+        userModel
+            .findOne({ _id: req.user.id })
+            .then(user => {
+                res.json(user);
+            })
+            .catch(err => res.status(404).json({
+                error: "User does not exist!"
+            }));
+    }
+)
 
-router.post('/login', function (req, res) {
+router.post('/login', function(req, res) {
     userModel.findOne({ email: req.body.email })
         .then(user => {
             console.log(user);
@@ -36,7 +38,7 @@ router.post('/login', function (req, res) {
                 const options = { expiresIn: 2592000 };
                 jwt.sign(
                     payload,
-                    key.secretOrKey,
+                    "secret",
                     options,
                     (err, token) => {
                         if (err) {
@@ -61,4 +63,4 @@ router.post('/login', function (req, res) {
         });
 })
 
-module.exports = router;
+module.exports = router

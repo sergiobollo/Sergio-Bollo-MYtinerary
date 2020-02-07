@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from "react-redux";
 import { POST_EMAIL, POST_PASSWORD, LOGIN } from "./store/actions/usersAction";
 import axios from 'axios';
 
 class Login extends React.Component {
-    
+
     async handleSubmit(event) {
         let res = await axios.post('http://localhost:5000/authentication/login', this.props.params);
         console.log(res.data);
@@ -14,14 +14,14 @@ class Login extends React.Component {
         event.preventDefault();
     }
 
-      /*  async onLoginSuccess(token) {
-        console.log(token);
-        axios.defaults.headers.common.Authorization = 'bearer ' + token;
-        localStorage.setItem('token', token);
-        const decoded = jwt_decode(token);
-        console.log(decoded);
-      }*/
-    
+    /*  async onLoginSuccess(token) {
+      console.log(token);
+      axios.defaults.headers.common.Authorization = 'bearer ' + token;
+      localStorage.setItem('token', token);
+      const decoded = jwt_decode(token);
+      console.log(decoded);
+    }*/
+
     handleEmailChange(event) {
         this.props.ingresarEmail(event.target.value);
     }
@@ -29,12 +29,13 @@ class Login extends React.Component {
     handlePasswordChange(event) {
         this.props.ingresarPassword(event.target.value);
     }
-    
+
     render() {
-        return(
-        <React.Fragment>
-         <h1 > Login < /h1>
-                
+        return ( <
+            React.Fragment >
+            <
+            h1 > Login < /h1>
+
             <
             form onSubmit = { this.handleSubmit.bind(this) } >
             <
@@ -62,8 +63,9 @@ class Login extends React.Component {
             value = "Submit" / >
             <
             /form>
-            
-         </React.Fragment>
+
+            <
+            /React.Fragment>
         );
     }
 }
