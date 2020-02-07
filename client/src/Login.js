@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { POST_EMAIL, POST_PASSWORD, LOGIN } from "./store/actions/usersAction";
 import axios from 'axios';
-import { REGISTER_EMAIL } from "./store/actions/registerAction";
+//import { REGISTER_EMAIL } from "./store/actions/registerAction";
 import { Redirect } from 'react-router-dom';
 import HomeLink from './homeLink';
 
@@ -13,17 +13,22 @@ class Login extends React.Component {
         console.log(res.data);
         this.props.login(res.data);
         alert("Login", this.props.logged);
-       // this.storeToken(this.props.logged.token)
+        // this.storeToken(this.props.logged.token)
         event.preventDefault();
     }
 
-  /*  async storeToken(token) {
-      console.log(token);
-      axios.defaults.headers.common.Authorization = 'bearer ' + token;
-      localStorage.setItem('token', token);
-      const decoded = jwt_decode(token);
-      console.log(decoded);
-    } */
+    componentWillUnmount() {
+        this.props.ingresarEmail("")
+        this.props.ingresarPassword("")
+    }
+
+    /*  async storeToken(token) {
+        console.log(token);
+        axios.defaults.headers.common.Authorization = 'bearer ' + token;
+        localStorage.setItem('token', token);
+        const decoded = jwt_decode(token);
+        console.log(decoded);
+      } */
 
     handleEmailChange(event) {
         this.props.ingresarEmail(event.target.value);
@@ -37,46 +42,45 @@ class Login extends React.Component {
         let content;
         console.log(this.props.logged);
         if (this.props.logged.token) {
-            content = <Redirect to='/home'></Redirect>
+            content = < Redirect to = '/' > < /Redirect>
         } else {
-            content =<
-            React.Fragment >
-            <
-            h1 > Login < /h1>
-            <
+            content = <
+                React.Fragment >
+                <
+                h1 > Login < /h1> <
             form onSubmit = { this.handleSubmit.bind(this) } >
-            <
-            label >
-            Email:
-            <
-            input placeholder = "Email"
+                <
+                label >
+                Email:
+                <
+                input placeholder = "Email"
             type = "email"
             value = { this.props.email }
             onChange = { this.handleEmailChange.bind(this) }
             /> < /
             label > <
-            label >
-            Password:
-            <
-            input placeholder = "Password"
+                label >
+                Password:
+                <
+                input placeholder = "Password"
             type = "password"
             value = { this.props.password }
             onChange = { this.handlePasswordChange.bind(this) }
             /> < /
             label >
 
-            <
-            input type = "submit"
+                <
+                input type = "submit"
             value = "Submit" / >
-            <
-            /form>
-            <HomeLink/>
-            <
-            /React.Fragment>
-            
-    }
+                <
+                /form> <
+            HomeLink / >
+                <
+                /React.Fragment>
+
+        }
         return content;
-}
+    }
 }
 
 const mapDispactchToProps = (dispatch) => {

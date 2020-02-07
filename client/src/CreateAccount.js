@@ -66,9 +66,11 @@ class CreateAccount extends React.Component {
             input type = "submit"
             value = "Submit" / >
             <
-            /form> < /
+            /form> <
+            HomeLink / >
+            <
+            /
             React.Fragment >
-                <HomeLink/>
         );
     }
 }
