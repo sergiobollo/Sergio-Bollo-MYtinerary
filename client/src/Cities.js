@@ -1,6 +1,7 @@
 import React from 'react';
 import FilterCities from './FilterCities'
 //import VisibleCities from './VisibleCities'
+import HomeLink from './homeLink'
 
 class Cities extends React.Component {
 
@@ -10,6 +11,7 @@ class Cities extends React.Component {
             <
             h1 > Cities < /h1> <
             FilterCities / >
+                <HomeLink/>
             <
             /React.Fragment>
         )
