@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { POST_EMAIL, POST_PASSWORD, LOGIN } from "./store/actions/usersAction";
 import axios from 'axios';
+import { REGISTER_EMAIL } from "./store/actions/registerAction";
 
 class Login extends React.Component {
 
