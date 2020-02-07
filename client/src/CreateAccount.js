@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { POST_EMAIL, POST_PASSWORD, POST_PICTURE } from "./store/actions/usersAction";
 import axios from 'axios';
+import HomeLink from './homeLink'
 
 class CreateAccount extends React.Component {
 
@@ -67,6 +68,7 @@ class CreateAccount extends React.Component {
             <
             /form> < /
             React.Fragment >
+                <HomeLink/>
         );
     }
 }
