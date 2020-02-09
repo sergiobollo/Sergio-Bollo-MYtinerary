@@ -5,6 +5,9 @@ import axios from 'axios';
 //import { REGISTER_EMAIL } from "./store/actions/registerAction";
 import { Redirect } from 'react-router-dom';
 import HomeLink from './homeLink';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 class Login extends React.Component {
 
@@ -46,9 +49,10 @@ class Login extends React.Component {
         } else {
             content = <
                 React.Fragment >
+
                 <
-                h1 > Login < /h1> <
-            form onSubmit = { this.handleSubmit.bind(this) } >
+                h1 className = "m-5" > Login < /h1> <
+            form >
                 <
                 label >
                 Email:
@@ -69,13 +73,28 @@ class Login extends React.Component {
             /> < /
             label >
 
-                <
-                input type = "submit"
-            value = "Submit" / >
+
                 <
                 /form> <
-            HomeLink / >
+            Container >
                 <
+                Row >
+                <
+                Col md = {
+                    { span: 3, offset: 3 }
+                } > <
+                button className = "m-5"
+            onClick = { this.handleSubmit.bind(this) } > OK < /button> </Col > <
+                /Row> <
+            Row >
+                <
+                Col md = {
+                    { span: 3, offset: 3 }
+                } >
+                <
+                HomeLink / > < /Col> < /
+            Row > < /
+            Container > <
                 /React.Fragment>
 
         }

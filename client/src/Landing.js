@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Logo(props) {
     return <img src = { props.source }
     alt = { props.alt }
-    className = "App-logo" /
+    className = "App-logo my-4" /
         >
     ;
 }
@@ -13,7 +13,7 @@ function Browser(props) {
     return <
         Link to = "/Cities" > < img src = { props.src }
     alt = { props.alt }
-    className = "App-browser" /
+    className = "App-browser mb-4" /
         >
         <
         /Link>
@@ -22,9 +22,8 @@ function Browser(props) {
 
 function FindTrip(props) {
     return <
-        div > < p > Find your perfect trip, designed by < br / >
-        insiders who know and love their cities. < /p> <
-    h1 > Start Browsing < /h1> <
+        div > <
+        h3 className = "mt-4" > Start Browsing < /h3> <
     Browser src = { props.source }
     alt = { props.name }
     / > < /
@@ -32,33 +31,31 @@ function FindTrip(props) {
 }
 
 function LogIn(props) {
-    return <a href = { props.href }
-    className = "App-link" > Log in < /a>
+    return <Link to = "./Login"
+    className = "App-link" > Log in < /Link>
 }
 
 function CreateNewAccount(props) {
-    return <a href = { props.href }
-    className = "App-link" > Create Account < /a>
+    return <Link to = "./CreateAccount"
+    className = "App-link" > Create Account < /Link>
 }
 
 function BuildMytineray(props) {
     return <div >
         <
         p > Whant to build your own MYtinerary ? < /p> <
-    LogIn href = { props.linkLogin }
-    / > <
-    CreateNewAccount href = { props.linkCreateAccount }
-    /> < /
+    LogIn / > <
+        CreateNewAccount / > < /
     div >
 }
 
 function Home(props) {
-    return <a href = { props.link } > < img src = { props.source }
+    return <Link to = "/" > < img src = { props.source }
     alt = { props.alt }
-    className = "App-home mt-4" /
+    className = "App-home my-5" /
         >
         <
-        /a >
+        /Link >
 }
 
 function Landing() {
@@ -66,21 +63,16 @@ function Landing() {
         <
         Logo source = "./MYtineraryLogo.png"
     alt = "Logo" / >
-
-
-
         <
-        FindTrip source = "./circled-right-2.png"
+        p > Find your perfect trip, designed by < br / >
+        insiders who know and love their cities. < /p> <
+    FindTrip source = "./circled-right-2.png"
     name = "Browser" /
         >
-
-
         <
-        BuildMytineray linkLogin = "./Login"
-    linkCreateAccount = "./CreateAccount" / >
+        BuildMytineray / >
         <
-        Home link = "/"
-    source = "./homeIcon.png"
+        Home source = "./homeIcon.png"
     alt = "Home" / >
         <
         /div>

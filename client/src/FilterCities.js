@@ -3,7 +3,8 @@ import FilterForm from './filterForm';
 import { connect } from "react-redux";
 import { LISTAR_CIUDADES, FILTER_CITIES } from "./store/actions/cityActions";
 import { Link } from 'react-router-dom';
-import { FILTER_ITINERARIES } from "./store/actions/itineraryActions"
+import { FILTER_ITINERARIES } from "./store/actions/itineraryActions";
+import ListGroup from 'react-bootstrap/ListGroup';
 
 class FilterCities extends React.Component {
 
@@ -37,23 +38,22 @@ class FilterCities extends React.Component {
             FilterForm cityFilter = { this.props.filteredCities }
             match = { this.props.match }
             onChange = { this.filterCities }
-            /> <
-            ul > {
+            />  <
+            ListGroup > {
                 this.props.filteredCities.map((city) =>
                     <
-                    li key = { city.name }
+                    ListGroup.Item key = { city.name }
                     value = { city.name } > <
                     Link to = "/itinerary"
                     onClick = {
                         () => this.handleClick(city.name)
-                    } > { city.name }, { city.country } < /Link> < /li >
+                    } > { city.name }, { city.country } < /Link> </ListGroup.Item >
                 )
-            } < /ul> < /
+            } < /ListGroup> < /
             React.Fragment >
         )
     }
 }
-
 
 const mapDispactchToProps = (dispatch) => {
     return {

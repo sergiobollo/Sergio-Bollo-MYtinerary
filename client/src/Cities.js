@@ -9,9 +9,10 @@ class Cities extends React.Component {
         return ( <
             React.Fragment >
             <
-            h1 > Cities < /h1> <
+            p className = "pt-4" > Filter our current cities < /p> <
             FilterCities / >
-                <HomeLink/>
+            <
+            HomeLink / >
             <
             /React.Fragment>
         )

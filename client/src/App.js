@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Landing from './Landing';
 import Cities from './Cities';
 import Login from './Login';
@@ -14,36 +14,6 @@ export default class App extends Component {
         return ( < BrowserRouter basename = '/' >
             <
             div className = "App" >
-            <
-            ul >
-            <
-            li >
-            <
-            Link to = "/" > Home < /Link> < /
-            li > <
-            li >
-            <
-            Link to = "/Cities" > Cities < /Link> < /
-            li > <
-            li >
-            <
-            Link to = "/Login" > Login < /Link> < /
-            li >
-            <
-            li >
-            <
-            Link to = "/CreateAccount" > Create Account < /Link> < /
-            li >
-                <
-            li >
-            <
-            Link to = "/itinerary" > Itinerary < /Link> < /
-            li >
-                < /
-            ul >
-            <
-            hr / >
-
             <
             Switch >
             <
@@ -58,18 +28,15 @@ export default class App extends Component {
             />  <
             Route path = '/CreateAccount'
             component = { CreateAccount }
-            /> 
-                <
+            />  <
             Route path = '/itinerary'
             component = { Itinerary }
-            /> 
-                <
+            />  <
             Route component = { Notfound }
             /> < /
             Switch > <
             /
             div >
-
             <
             /
             BrowserRouter >
